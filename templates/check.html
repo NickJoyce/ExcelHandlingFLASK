@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %} {% endblock title %}
+{% block head %} {% endblock head %}
+
+{% block header %}
+			<form method='POST' action='/upload'>
+				<div class='upload'>
+					<input  class='upload_btn' value='Загрузить все файлы' type='SUBMIT'>
+				</div>
+			</form>
+{% endblock header %}
+{% block content %}
+    {% for item in data %}
+    <table class="outer_table">
+        <tr><th>{{ item.file_name }}</th></tr>
+        <tr><td>
+            <table class="inner_table">
+            {% for k, v in item.req_match.items() %}
+            <tr>
+                <td>{{ k }}</td>
+                {% if v %}
+                <td>{{ v }}</td></tr>
+                 {% else %}
+                <td class="highlighted">{{ v }}</td></tr>
+                 {% endif %}
+            {% endfor %}
+            </table>
+        </td></tr>
+        <tr><td>
+            <table class="inner_table">
+            {% for k, v in item.unreq_match.items() %}
+            <tr>
+                <td>{{ k }}</td>
+                {% if v %}
+                <td>{{ v }}</td></tr>
+                 {% else %}
+                <td class="highlighted">{{ v }}</td></tr>
+                 {% endif %}
+            {% endfor %}
+            </table>
+        </td></tr>
+        <tr><td>
+            <table class="inner_table">
+                 <tr>
+                     {% if item.dup %}
+                     <td class="dub highlighted">{{ item.dup }}</td>
+                     {% else %}
+                     <td class="dub">{{ item.dup }}</td>
+                     {% endif %}
+                 </tr>
+            </table>
+        </td></tr>
+    </table>
+    <br>
+ <br>
+ <br>
+    {% endfor %}
+{% endblock content %}
+{% block footer %} {% endblock footer %}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neworder newfolder="NO">
+<auth extra="{{ extra }}" login="{{ login }}" pass="{{ password }}"></auth>
+ <order>
+   <receiver>
+     <company>{{ receiver_name }}</company>
+     <person>{{ code }}</person>
+     <phone>{{ phone }}</phone>
+     <address>{{ address }}</address>
+     <date>{{ date }}</date>
+     <time_min>09:00</time_min>
+     <time_max>14:00</time_max>
+   </receiver>
+   <enclosure>{{ sku }} - {{ size }}</enclosure>
+   <instruction>{{ product_name }}</instruction>
+ </order>
+</neworder>

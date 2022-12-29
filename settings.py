@@ -1,0 +1,1 @@
+API_PATH = "https://home.courierexe.ru/api/"
